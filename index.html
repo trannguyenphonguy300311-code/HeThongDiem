@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hệ Thống Điểm Gia Đình</title>
+
+    <!-- Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Chart.js -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>🏆 HỆ THỐNG ĐIỂM GIA ĐÌNH</h1>
+
+        <h3 id="childName">Tên em</h3>
+
+        <p id="todayDate"></p>
+
+    </header>
+
+    <!-- DASHBOARD -->
+
+    <section class="dashboard">
+
+        <div class="card">
+
+            <h2>⭐ Điểm hôm nay</h2>
+
+            <h1 id="todayPoint">5</h1>
+
+        </div>
+
+        <div class="card">
+
+            <h2>📅 Điểm tuần</h2>
+
+            <h1 id="weekPoint">35</h1>
+
+        </div>
+
+    </section>
+
+    <!-- THANH TIẾN ĐỘ -->
+
+    <section class="box">
+
+        <h2>🎯 Tiến độ tuần</h2>
+
+        <progress id="weekProgress" value="35" max="70"></progress>
+
+        <p id="progressText">35 / 70 điểm</p>
+
+    </section>
+
+    <!-- BIỂU ĐỒ -->
+
+    <section class="box">
+
+        <h2>📊 Biểu đồ năng lực</h2>
+
+        <canvas id="radarChart"></canvas>
+
+    </section>
+
+    <!-- CỘNG ĐIỂM -->
+
+    <section class="box">
+
+        <h2>➕ Cộng điểm</h2>
+
+        <button onclick="congDiem(0.5,'Việc nhà')">
+            🧹 Làm việc nhà (+0.5)
+        </button>
+
+        <button onclick="congDiem(0.5,'Vệ sinh')">
+            🚿 Tắm rửa (+0.5)
+        </button>
+
+        <button onclick="congDiem(0.5,'Giúp bố mẹ')">
+            ❤️ Giúp bố mẹ (+0.5)
+        </button>
+
+        <button onclick="congDiem(1,'Học tập')">
+            📚 Thành tích (+1)
+        </button>
+
+    </section>
+
+    <!-- TRỪ ĐIỂM -->
+
+    <section class="box">
+
+        <h2>➖ Trừ điểm</h2>
+
+        <button onclick="truDiem(1,'Việc nhà')">
+            Không dọn dẹp
+        </button>
+
+        <button onclick="truDiem(2,'Thái độ')">
+            Thái độ
+        </button>
+
+        <button onclick="truDiem(3,'Thái độ')">
+            Hỗn với người lớn
+        </button>
+
+        <button onclick="truDiem(2,'Vệ sinh')">
+            Không tắm
+        </button>
+
+        <button onclick="truDiem(1,'Giờ giấc')">
+            Đi học về trễ
+        </button>
+
+        <button onclick="truDiem(3,'Thái độ')">
+            Chống đối
+        </button>
+
+    </section>
+
+    <!-- ĐIỀU ƯỚC -->
+
+    <section class="box">
+
+        <h2>🎁 Điều ước</h2>
+
+        <h3 id="wish">Chưa đủ 60 điểm</h3>
+
+    </section>
+
+    <!-- LỊCH SỬ -->
+
+    <section class="box">
+
+        <h2>📜 Lịch sử hoạt động</h2>
+
+        <ul id="history"></ul>
+
+        <hr>
+
+        <h3>📅 Lịch sử theo ngày</h3>
+
+        <ul id="dailyHistory"></ul>
+
+    </section>
+
+    <!-- QUẢN TRỊ -->
+
+    <section class="box">
+
+        <h2>⚙️ Quản trị</h2>
+
+        <button onclick="login()">
+            🔐 Đăng nhập
+        </button>
+
+        <button onclick="changeName()">
+            ✏️ Đổi tên
+        </button>
+
+        <button onclick="resetDay()">
+            🌞 Sang ngày mới
+        </button>
+
+        <button onclick="resetWeek()">
+            📅 Reset tuần
+        </button>
+
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
